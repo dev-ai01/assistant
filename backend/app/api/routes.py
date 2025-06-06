@@ -16,10 +16,8 @@ class QueryRequest(BaseModel):
 @router.post("/search-ui", response_class=HTMLResponse)
 async def search_ui(request: Request, query: str = Form(...)):
     try:
-        # Run your full business logic agent
         result = run_agent(query)
 
-        # Generate docx and determine path
         filename = f"{query[:30].replace(' ', '_')}.docx"
         filepath = os.path.join("static", "reports", filename)
 
