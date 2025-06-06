@@ -16,11 +16,6 @@ from langgraph.graph import StateGraph
 
 load_dotenv(find_dotenv())
 
-client = OpenAI(
-    api_key= OPENAI_API_KEY,
-)
-
-SERPER_API_KEY = SERPER_API_KEY
 
 class AgentState(TypedDict):
     query: str
