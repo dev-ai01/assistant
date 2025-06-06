@@ -76,7 +76,6 @@ def summarize_filter_node(state: AgentState) -> AgentState:
     return {**state, "filtered_json": summarized_json}
 
 def run_agent(query: str) -> Dict[str, Any]:
-    """Run the sequential agent pipeline."""
     workflow = StateGraph(AgentState)
     workflow.add_node("search", search_node)
     workflow.add_node("scrape", scrape_node)
