@@ -23,10 +23,6 @@ async def search_ui(request: Request, query: str = Form(...)):
         filename = f"{query[:30].replace(' ', '_')}.docx"
         filepath = os.path.join("static", "reports", filename)
 
-        # Save docx (assuming your run_agent saves it already)
-        # OR call your docx function here explicitly if needed
-        # json_to_docx(result, query, filepath)
-
         return templates.TemplateResponse("index.html", {
             "request": request,
             "result": json.dumps(result, indent=2),
