@@ -58,13 +58,6 @@ def map_to_schema_node(state: AgentState) -> AgentState:
     mapped = map_to_schema(summary, state["query"])
     return {**state, "mapped_results": [mapped]}
 
-# def extract_json_node(state: AgentState) -> AgentState:
-#     """Extract JSON block from each mapped result."""
-#     if not state.get("mapped_results"):
-#         return state
-#     final_json = {"results": [extract_json_block(res) for res in state["mapped_results"]]}
-#     return {**state, "final_json": final_json}
-
 
 def summarize_filter_node(state: AgentState) -> AgentState:
     """
