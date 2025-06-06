@@ -11,21 +11,16 @@ from dotenv import load_dotenv, find_dotenv
 from groq import Groq
 from app.core.tools import search_serper, extract_json_block, map_to_schema, summarize_text, scrape_and_clean, summarize_or_filter_json, json_to_docx
 from openai import OpenAI
-load_dotenv(find_dotenv())
+from typing import TypedDict, List, Dict, Optional
+from langgraph.graph import StateGraph
 
-# client = Groq(
-#     api_key="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",
-# )
+load_dotenv(find_dotenv())
 
 client = OpenAI(
     api_key= OPENAI_API_KEY,
 )
 
-
-SERPER_API_KEY = "79ef9f3903469fd58dcf2f747903ad4b0673c323"
-
-from typing import TypedDict, List, Dict, Optional
-from langgraph.graph import StateGraph
+SERPER_API_KEY = SERPER_API_KEY
 
 class AgentState(TypedDict):
     query: str
