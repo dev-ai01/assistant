@@ -13,12 +13,6 @@ from docx import Document
 from openai import OpenAI
 load_dotenv(find_dotenv())
 
-client = OpenAI(
-    api_key=OpenAI_API_KEY,
-)
-
-SERPER_API_KEY = SERPER_API_KEY
-
 def search_serper(query: str, api_key: str, num_results: int = 3) -> List[str]:
     """Search using Serper API and return top URLs."""
     url = "https://google.serper.dev/search"
