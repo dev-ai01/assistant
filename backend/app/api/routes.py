@@ -8,25 +8,10 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
-# @router.get("/sample")
-# async def sample_endpoint():
-#     result = sample_logic_function()
-#     return {"result": result}
 templates = Jinja2Templates(directory="app/templates")
-
-# def mock_process_query(query: str):
-#     return {"message": f"Received query: {query}"}
 
 class QueryRequest(BaseModel):
     query: str
-
-# @router.post("/search")
-# def search_endpoint(request: QueryRequest):
-#     try:
-#         response = run_agent(request.query)
-#         return response
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/search-ui", response_class=HTMLResponse)
 async def search_ui(request: Request, query: str = Form(...)):
